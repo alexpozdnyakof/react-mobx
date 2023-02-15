@@ -8,6 +8,7 @@
   border-radius: 6px;
   background-color: rgba(234, 238, 239, 0);
   transition: all .15s ease;
+  margin-top: -2px;
 }
 
 .list-item:hover{
@@ -17,6 +18,18 @@
 
 .todo-input{
   margin-right: 8px;
+}
+
+.todoTitle{
+  border-width: 1px;
+  border-style: dashed ;
+  border-color:rgba(0,0,0,0);
+  border-radius: 2px;
+  transition: all .15s ease;
+}
+
+.todoTitle:hover{
+  border-color:  rgba(0,0,0,1);
 }
 
 .todoToggle {

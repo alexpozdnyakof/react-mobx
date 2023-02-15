@@ -1,10 +1,10 @@
 import { observer } from 'mobx-react-lite'
 import { useRef } from 'react'
-import { TodoListStore, TodoStore } from '../store'
+import { Todo, TodosStore } from '../todo-store'
 import styles from './todo-list.module.css'
 
 type TodoListProps = {
-  todoList: TodoListStore
+  todoList: TodosStore
 }
 
 
@@ -29,15 +29,15 @@ const TodoList = observer(({todoList}: TodoListProps) => (
   <div>
     <TodoForm onCreate={(title: string) => todoList.add(title)}/>
     <ul className={styles['list']}>
-      {todoList.todos.map((todo: TodoStore) => (
+      {todoList.todos.map((todo: Todo) => (
         <li className={styles['list-item']} key={todo.id}>
           <input
             className={styles.todoToggle}
             type="checkbox"
-            checked={todo.finished}
+            checked={todo.done}
             onChange={() => todoList.toggle(todo.id)}
           />
-          <span onDoubleClick={() => todoList.edit(todo.id, prompt('Change title', todo.title))}>{todo.title}</span>
+          <span className={styles['todoTitle']} onDoubleClick={() => todoList.edit(todo.id, prompt('Change title', todo.title))}>{todo.title}</span>
           <div style={{flexGrow: 1}}/>
           <button  className={styles['todoDelete']} onClick={() => todoList.remove(todo.id)}>✖️</button>
         </li>

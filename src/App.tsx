@@ -1,9 +1,14 @@
 import './App.css'
-import { useStore } from './store/context'
+import { createTodoStore } from './todo-store'
+import { initialTodos } from './todos'
 import { Card, TodoList } from './ui'
 
+
+
 function App() {
-  const {store} = useStore()
+
+
+  const store = createTodoStore(initialTodos)
 
   return (
     <div className="App">
