@@ -1,4 +1,4 @@
-import { action, computed, makeObservable, observable } from 'mobx'
+import { action, autorun, computed, makeAutoObservable, makeObservable, observable } from 'mobx'
 import { nanoid } from 'nanoid'
 
 
@@ -30,17 +30,24 @@ export function createTodoStore(todos: Array<Todo>){
       if(!newTitle) return;
       const todo = this.todos.find(todo => todo.id === id)
       if(todo){todo.title = newTitle}
+    },
+    *load(){
+      const todos: Array<Todo> = yield fetch('/api/todos').then(respone => respone.json())
+      console.log({todos})
+      this.todos = [...todos]
     }
   }
 
-  makeObservable(store, {
-    todos: observable,
-    unfinishedTodoCount: computed,
-    add: action,
-    toggle: action,
-    remove: action
-  })
-
+  makeAutoObservable(store)
+  autorun(() => {
+    console.log(
+        "Remaining:",
+        store.todos
+            .filter(todo => !todo.done)
+            .map(todo => todo.title)
+            .join(", ")
+    )
+})
   return store
 }
 

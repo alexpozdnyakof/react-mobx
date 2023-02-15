@@ -1,5 +1,6 @@
+import { flowResult } from 'mobx'
 import { observer } from 'mobx-react-lite'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { Todo, TodosStore } from '../todo-store'
 import styles from './todo-list.module.css'
 
@@ -22,6 +23,9 @@ const TodoForm = ({onCreate}: {onCreate: (title: string) => void}) => {
 const TodoList = observer(({todoList}: {
   todoList: TodosStore
 }) => {
+  useEffect(() => {
+    flowResult(todoList.load())
+  }, [])
   return (
   <div>
     <TodoForm onCreate={(title: string) => todoList.add(title)}/>

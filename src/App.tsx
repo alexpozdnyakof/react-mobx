@@ -2,13 +2,19 @@ import './App.css'
 import { createTodoStore } from './todo-store'
 import { initialTodos } from './todos'
 import { Card, TodoList } from './ui'
+import { createServer} from 'miragejs'
 
+createServer({
+  routes() {
+    this.get("/api/todos", () => initialTodos)
+  },
+})
 
 
 function App() {
 
 
-  const store = createTodoStore(initialTodos)
+  const store = createTodoStore([])
 
   return (
     <div className="App">
