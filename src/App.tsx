@@ -8,8 +8,8 @@ function App() {
   return (
     <div className="App">
       <Card>
-        <h1>Todo list</h1>
-        <TodoList  todoList={store}/>
+        <h1>Today activity list</h1>
+        <TodoList todoList={store}/>
       </Card>
     </div>
   )

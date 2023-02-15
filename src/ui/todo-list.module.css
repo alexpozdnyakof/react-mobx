@@ -1,0 +1,39 @@
+.list {
+  margin-left: -4px;
+}
+.list-item{
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 6px;
+  background-color: rgba(234, 238, 239, 0);
+  transition: all .15s ease;
+}
+
+.list-item:hover{
+  background-color: rgba(234, 238, 239, 1);
+
+}
+
+.todo-input{
+  margin-right: 8px;
+}
+
+.todoToggle {
+  margin-right: 8px;
+}
+.todoDelete {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  background: transparent;
+  opacity: 0;
+
+}
+
+.list-item:hover > .todoDelete {
+  opacity: 1;
+}
