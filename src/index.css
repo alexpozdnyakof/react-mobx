@@ -3,23 +3,26 @@
 }
 
 input, button {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Graphik LCG', sans-serif;
 }
 
 :root {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Graphik LCG', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #1b1b1b;
+  background-color: #37383c;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+  --bg-surface: #1b1b1b;
+  --bg-on-surface: #37383c;
+  --border-color: rgba(255, 255, 255, 0.87);
 }
 
 a {
@@ -56,6 +59,9 @@ ul{
   :root {
     color: #1b1b1b;
     background-color: #eaeeef;
+    --bg-surface: #fff;
+    --bg-on-surface: rgba(234, 238, 239, 1);
+    --border-color: rgba(0,0,0, 0.87);
   }
   a:hover {
     color: #747bff;

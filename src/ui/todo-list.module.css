@@ -1,35 +1,38 @@
 .list {
   margin-left: -4px;
 }
-.list-item{
+.listItem{
   display: flex;
   align-items: center;
   padding: 4px;
   border-radius: 6px;
-  background-color: rgba(234, 238, 239, 0);
-  transition: all .15s ease;
+  transition: all .25s ease-in-out;
   margin-top: -2px;
 }
 
-.list-item:hover{
-  background-color: rgba(234, 238, 239, 1);
-
+.listItem:hover{
+  background-color: var(--bg-on-surface);
 }
 
-.todo-input{
+.listItem:hover > .todoDelete {
+  opacity: 1;
+}
+
+.todoInput{
   margin-right: 8px;
 }
 
 .todoTitle{
   border-width: 1px;
   border-style: dashed ;
-  border-color:rgba(0,0,0,0);
+  border-color: transparent;
   border-radius: 2px;
-  transition: all .15s ease;
+  transition: all .25s ease-in-out;
+  font-size: 14px;
 }
 
 .todoTitle:hover{
-  border-color:  rgba(0,0,0,1);
+  border-color:  var(--border-color);
 }
 
 .todoToggle {
@@ -44,9 +47,6 @@
   border: none;
   background: transparent;
   opacity: 0;
-
+  transition: all .15s ease-in-out;
 }
 
-.list-item:hover > .todoDelete {
-  opacity: 1;
-}
