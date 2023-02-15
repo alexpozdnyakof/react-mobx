@@ -1,11 +1,14 @@
+* {
+  box-sizing: border-box;
+}
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #1b1b1b;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,6 +28,7 @@ a:hover {
 
 body {
   margin: 0;
+  padding: 2rem;
   display: flex;
   place-items: center;
   min-width: 320px;
@@ -32,9 +36,16 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: normal;
 }
+
+ul{
+  list-style: none;
+  padding-left: 0;
+}
+
 
 button {
   border-radius: 8px;
@@ -57,8 +68,8 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: #1b1b1b;
+    background-color: #eaeeef;
   }
   a:hover {
     color: #747bff;
