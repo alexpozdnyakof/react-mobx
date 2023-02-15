@@ -6,7 +6,7 @@ import styles from './todo-list.module.css'
 const TodoForm = ({onCreate}: {onCreate: (title: string) => void}) => {
   const ref = useRef<HTMLInputElement>(null)
   const create = () => {
-    if(ref.current){
+    if(ref.current && ref.current.value.length > 0){
       onCreate(ref.current.value)
       ref.current.value = ''
     }
@@ -21,7 +21,8 @@ const TodoForm = ({onCreate}: {onCreate: (title: string) => void}) => {
 
 const TodoList = observer(({todoList}: {
   todoList: TodosStore
-}) => (
+}) => {
+  return (
   <div>
     <TodoForm onCreate={(title: string) => todoList.add(title)}/>
     <ul className={styles.list}>
@@ -41,6 +42,6 @@ const TodoList = observer(({todoList}: {
     </ul>
     <span>Tasks left: {todoList.unfinishedTodoCount}</span>
   </div>
-))
+)})
 
 export default TodoList
